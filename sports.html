@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Sports | GameChanger4U - Your Sports Growth Partner</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- Navbar (Same as index) -->
+    <nav class="navbar scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/gamechanger4u-logo.jpg" alt="GameChanger4U Logo" style="height: 45px; border-radius: 8px;">
+                <span>GameChanger<span style="color: var(--brand-orange)">4U</span></span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="sports.html" class="active">Sports</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Tab Bar -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="index.html" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="services.html" class="mobile-nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Services</span>
+            </a>
+            <a href="pricing.html" class="mobile-nav-item">
+                <i class="fas fa-tags"></i>
+                <span>Pricing</span>
+            </a>
+            <a href="sports.html" class="mobile-nav-item active">
+                <i class="fas fa-running"></i>
+                <span>Sports</span>
+            </a>
+            <a href="contact.html" class="mobile-nav-item">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="section-padding" style="padding-top: 150px; text-align: center; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="slide-up">
+                    <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px;">
+                        YOUR <span class="text-gradient">SPORTS</span> GROWTH PARTNER
+                    </h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto 40px;">
+                        We don't just grow businesses; we build sports ecosystems. From infrastructure to digital management, we are the game changers.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sports Services -->
+        <section class="section-padding">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px;">
+                    <!-- Badminton Courts -->
+                    <div class="glass reveal slide-up" style="padding: 40px; border-radius: var(--radius-lg); text-align: center;">
+                        <div style="width: 70px; height: 70px; background: var(--accent-glow); color: var(--brand-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 24px;">
+                            <i class="fas fa-shuttlecock"></i> <!-- Note: fa-shuttlecock might need pro, using table-tennis instead if not available -->
+                            <i class="fas fa-table-tennis-paddle-ball"></i>
+                        </div>
+                        <h3>BADMINTON COURTS</h3>
+                        <p style="color: var(--text-secondary); margin: 16px 0;">Professional grade badminton court construction and maintenance service. We build courts that meet international standards.</p>
+                        <span class="popup-badge" style="background: var(--bg-secondary); color: var(--text-primary); font-size: 0.8rem;">SERVICE AVAILABLE</span>
+                    </div>
+
+                    <!-- Tournaments -->
+                    <div class="glass reveal slide-up delay-200" style="padding: 40px; border-radius: var(--radius-lg); text-align: center;">
+                        <div style="width: 70px; height: 70px; background: var(--accent-glow); color: var(--brand-orange); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin: 0 auto 24px;">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>TOURNAMENT MANAGEMENT</h3>
+                        <p style="color: var(--text-secondary); margin: 16px 0;">End-to-end conduction of sports tournaments. From registrations and scheduling to live scoring and marketing.</p>
+                        <span class="popup-badge" style="background: var(--bg-secondary); color: var(--text-primary); font-size: 0.8rem;">SERVICE AVAILABLE</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coming Soon / Software Section -->
+        <section class="section-padding" style="background: var(--bg-secondary);">
+            <div class="container">
+                <div style="text-align: center; margin-bottom: 60px;">
+                    <h2 class="reveal slide-up">DIGITAL <span class="text-gradient">SPORTS SOLUTIONS</span></h2>
+                    <p style="color: var(--text-secondary);">Innovative tech platforms coming your way soon.</p>
+                </div>
+
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                    <!-- Turf Booking -->
+                    <div class="glass reveal scale-in" style="padding: 30px; border-radius: var(--radius-md); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 15px; right: 15px;">
+                            <span class="popup-badge" style="margin: 0; font-size: 0.7rem; opacity: 0.8;">COMING SOON</span>
+                        </div>
+                        <i class="fas fa-calendar-check" style="font-size: 2rem; color: var(--brand-orange); margin-bottom: 20px;"></i>
+                        <h4>TURF BOOKING PLATFORM</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">A seamless way for players to find and book your turfs online instantly.</p>
+                    </div>
+
+                    <!-- Academy Management -->
+                    <div class="glass reveal scale-in delay-200" style="padding: 30px; border-radius: var(--radius-md); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 15px; right: 15px;">
+                            <span class="popup-badge" style="margin: 0; font-size: 0.7rem; opacity: 0.8;">COMING SOON</span>
+                        </div>
+                        <i class="fas fa-user-graduate" style="font-size: 2rem; color: var(--brand-orange); margin-bottom: 20px;"></i>
+                        <h4>ACADEMY MAINTAINING SOFTWARE</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">Complete ERP solution for sports academies—track attendance, payments, and performance.</p>
+                    </div>
+
+                    <!-- Gym Platform -->
+                    <div class="glass reveal scale-in delay-400" style="padding: 30px; border-radius: var(--radius-md); position: relative; overflow: hidden;">
+                        <div style="position: absolute; top: 15px; right: 15px;">
+                            <span class="popup-badge" style="margin: 0; font-size: 0.7rem; opacity: 0.8;">COMING SOON</span>
+                        </div>
+                        <i class="fas fa-dumbbell" style="font-size: 2rem; color: var(--brand-orange); margin-bottom: 20px;"></i>
+                        <h4>GYM PLATFORM SOFTWARE</h4>
+                        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 10px;">The ultimate management tool for gym owners to handle memberships and workouts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interest Form -->
+        <section class="section-padding">
+            <div class="container" style="max-width: 800px;">
+                <div class="glass" style="padding: 50px; border-radius: var(--radius-lg); text-align: center;">
+                    <h2 style="margin-bottom: 20px;">Interested in our Sports Services?</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 30px;">Be the first to know when we launch our new platforms or enquire about court construction.</p>
+                    <form id="contact-form" style="display: grid; gap: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <input type="text" name="name" placeholder="Your Name" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary);">
+                            <input type="email" name="email" placeholder="Email Address" required style="padding: 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary);">
+                        </div>
+                        <select name="service" style="padding: 15px; border-radius: 10px; border: 1px solid var(--border); background: var(--bg-primary); color: var(--text-primary);">
+                            <option value="court">Badminton Court Construction</option>
+                            <option value="tournament">Tournament Conduction</option>
+                            <option value="software">Software Platforms Interest</option>
+                        </select>
+                        <button type="submit" class="btn btn-primary">Notify Me / Enquire</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-about">
+                    <a href="index.html" class="logo footer-logo">
+                        <img src="assets/gamechanger4u-logo.jpg" alt="GameChanger4U Logo" style="height: 50px; border-radius: 10px; margin-bottom: 15px;">
+                        <span>GameChanger<span style="color: var(--brand-orange)">4U</span></span>
+                    </a>
+                    <p class="footer-text">Your Sports & Digital Growth Partner. We specialize in transforming businesses into brands with cutting-edge digital marketing strategies.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="sports.html">Sports</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact Us</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:8098234455"><i class="fas fa-phone" style="margin-right: 10px; color: var(--brand-orange)"></i> 8098234455</a></li>
+                        <li><a href="mailto:info@gamechanger4u.com"><i class="fas fa-envelope" style="margin-right: 10px; color: var(--brand-orange)"></i> info@gamechanger4u.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/918098234455" class="whatsapp-float pulse" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

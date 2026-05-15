@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact Us | GameChanger4U</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .contact-form-container {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 60px;
+            margin-top: 50px;
+        }
+        .form-group {
+            margin-bottom: 24px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--surface);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            transition: var(--transition);
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--brand-orange);
+            outline: none;
+            box-shadow: 0 0 0 4px var(--accent-glow);
+        }
+        .info-card {
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: var(--radius-lg);
+            height: fit-content;
+        }
+        .info-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--brand-orange);
+            color: white;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        @media (max-width: 768px) {
+            .contact-form-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/gamechanger4u-logo.jpg" alt="GameChanger4U Logo" style="height: 45px; border-radius: 8px;">
+                <span>GameChanger<span style="color: var(--brand-orange)">4U</span></span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="sports.html" style="position: relative;">
+                    Sports
+                    <span style="font-size: 0.6rem; background: var(--brand-orange); color: white; padding: 2px 6px; border-radius: 4px; position: absolute; top: -10px; right: -20px; font-weight: 700;">SOON</span>
+                </a>
+                <a href="contact.html" class="active">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Tab Bar -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="index.html" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="services.html" class="mobile-nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Services</span>
+            </a>
+            <a href="pricing.html" class="mobile-nav-item">
+                <i class="fas fa-tags"></i>
+                <span>Pricing</span>
+            </a>
+            <a href="sports.html" class="mobile-nav-item">
+                <i class="fas fa-running"></i>
+                <span>Sports</span>
+                <span class="badge-soon">SOON</span>
+            </a>
+            <a href="contact.html" class="mobile-nav-item active">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Header -->
+        <section class="section-padding" style="padding-top: 150px; text-align: center; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="slide-up">
+                    <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px;">
+                        GET IN <span class="text-gradient">TOUCH</span>
+                    </h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        Ready to grow your business? Fill out the form below or reach out to us directly.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <section class="section-padding">
+            <div class="container">
+                <div class="contact-form-container">
+                    <!-- Form -->
+                    <div class="glass reveal slide-in-left" style="padding: 40px; border-radius: var(--radius-lg);">
+                        <form id="contact-form">
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group">
+                                    <label>Full Name</label>
+                                    <input type="text" name="name" placeholder="John Doe" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Business Name</label>
+                                    <input type="text" name="business" placeholder="Business Ltd.">
+                                </div>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                                <div class="form-group">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone" placeholder="8098234455" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Service Interested In</label>
+                                <select name="service">
+                                    <option value="social-media">Social Media Management</option>
+                                    <option value="ai-video">AI Powered Videos</option>
+                                    <option value="website">Website Development</option>
+                                    <option value="branding">Brand Growth Strategy</option>
+                                    <option value="sports">Sports Services</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Your Message</label>
+                                <textarea name="message" rows="5" placeholder="Tell us about your project..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 18px;">Send Enquiry</button>
+                        </form>
+                    </div>
+
+                    <!-- Info -->
+                    <div class="reveal slide-in-right">
+                        <div class="info-card">
+                            <h3 style="margin-bottom: 30px;">Contact Information</h3>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-phone"></i></div>
+                                <div>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Call Us</p>
+                                    <p style="font-weight: 700; font-size: 1.1rem;">8098234455</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Email Us</p>
+                                    <p style="font-weight: 700; font-size: 1.1rem;">info@gamechanger4u.com</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-icon"><i class="fas fa-globe"></i></div>
+                                <div>
+                                    <p style="color: var(--text-muted); font-size: 0.9rem;">Location</p>
+                                    <p style="font-weight: 700; font-size: 1.1rem;">Scaling to Global</p>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--border);">
+                                <h4 style="margin-bottom: 20px;">We Are Here To Help!</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.95rem;">Dedicated support always. Let's grow your business together!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 GameChanger4U. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
+</body>
+</html>

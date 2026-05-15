@@ -1,0 +1,727 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@400;700;800&display=swap');
+
+:root {
+    /* Color Palette - Light Mode (Default) */
+    --brand-orange: #FF6B1A;
+    --brand-indigo: #6366F1;
+    --brand-purple: #A855F7;
+    --brand-orange-rgb: 255, 107, 26;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F3F4F6;
+    --text-primary: #111827;
+    --text-secondary: #4B5563;
+    --text-muted: #9CA3AF;
+    --surface: #FFFFFF;
+    --border: #E5E7EB;
+    --glass-bg: rgba(255, 255, 255, 0.8);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --card-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    --accent-glow: rgba(99, 102, 241, 0.1);
+    
+    /* Gradients */
+    --grad-primary: linear-gradient(135deg, #6366F1 0%, #A855F7 100%);
+    --grad-accent: linear-gradient(135deg, #FF6B1A 0%, #F97316 100%);
+    
+    /* Spacing & Borders */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-full: 9999px;
+    --container-width: 1200px;
+    --nav-height: 80px;
+    --mobile-nav-height: 70px;
+
+    /* Transitions */
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #030712;
+    --bg-secondary: #111827;
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --text-muted: #6B7280;
+    --surface: #1F2937;
+    --border: #374151;
+    --glass-bg: rgba(17, 24, 39, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.05);
+    --card-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    --accent-glow: rgba(168, 85, 247, 0.2);
+}
+
+/* Color Utilities */
+.bg-indigo-soft { background-color: #EEF2FF; }
+.bg-purple-soft { background-color: #FAF5FF; }
+.bg-orange-soft { background-color: #FFF7ED; }
+
+[data-theme="dark"] .bg-indigo-soft { background-color: #08091a; }
+[data-theme="dark"] .bg-purple-soft { background-color: #0d081a; }
+[data-theme="dark"] .bg-orange-soft { background-color: #120805; }
+
+.bg-indigo-solid { background: var(--grad-primary); color: white; }
+.bg-purple-solid { background: var(--grad-primary); color: white; }
+.bg-orange-solid { background: var(--grad-accent); color: white; }
+
+/* Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+button, .btn {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+/* Utility Classes */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.section-padding {
+    padding: 100px 0;
+    transition: background-color 0.5s ease;
+}
+
+.text-gradient {
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.text-gradient-accent {
+    background: var(--grad-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    height: 70px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--brand-orange);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    font-size: 0.95rem;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--brand-orange);
+    transition: var(--transition);
+}
+
+.nav-links a:hover::after, .nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.theme-toggle {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background: var(--brand-orange);
+    color: white;
+    padding: 12px 28px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 15px rgba(var(--brand-orange-rgb), 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(var(--brand-orange-rgb), 0.4);
+}
+
+/* Mobile Navigation (Bottom Tab Bar) */
+.mobile-nav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--mobile-nav-height);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-top: 1px solid var(--glass-border);
+    z-index: 1000;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.mobile-nav-content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}
+
+.mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: var(--text-secondary);
+    font-size: 0.7rem;
+    font-weight: 500;
+    flex: 1;
+    position: relative;
+}
+
+.mobile-nav-item i {
+    font-size: 1.2rem;
+}
+
+.mobile-nav-item.active {
+    color: var(--brand-orange);
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        bottom: 90px; /* Above mobile nav */
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+    }
+}
+
+/* Special Offer Popup */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.popup-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.popup-content {
+    background: var(--bg-primary);
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    transform: scale(0.8);
+    transition: var(--transition);
+}
+
+.popup-overlay.active .popup-content {
+    transform: scale(1);
+}
+
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--text-muted);
+}
+
+.popup-badge {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--brand-orange);
+    color: white;
+    border-radius: var(--radius-full);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+    background: var(--bg-secondary);
+    padding: 80px 0 40px;
+    border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 60px;
+}
+
+.footer-logo {
+    margin-bottom: 24px;
+}
+
+.footer-text {
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 16px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.social-icon:hover {
+    background: var(--brand-orange);
+    color: white;
+    border-color: var(--brand-orange);
+}
+
+.footer-title {
+    margin-bottom: 24px;
+    font-size: 1.2rem;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+}
+
+.footer-links a:hover {
+    color: var(--brand-orange);
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links, .nav-actions .btn-primary {
+        display: none;
+    }
+    
+    .mobile-nav {
+        display: block;
+    }
+    
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Hero Mobile Fix */
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+        padding-top: 40px;
+    }
+
+    .hero-text {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-image {
+        order: 2;
+        width: 100% !important;
+        max-width: 300px;
+    }
+
+    /* Grid Mobile Fixes */
+    .footer-grid, .pricing-grid, [style*="display: grid"] {
+        grid-template-columns: 1fr !important;
+        gap: 30px !important;
+    }
+
+    /* Section Specific Mobile Fixes */
+    [style*="display: grid; grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+
+    [style*="display: flex; align-items: center; gap: 80px"] {
+        flex-direction: column;
+        gap: 40px !important;
+    }
+
+    /* Why Choose Us Mobile */
+    .reveal.slide-in-left h2 {
+        font-size: 2.2rem !important;
+        margin-top: 10px;
+    }
+
+    .reveal.slide-in-right {
+        margin-top: 20px;
+    }
+
+    .glass.float {
+        width: 260px !important;
+        height: 260px !important;
+        padding: 30px 15px !important;
+    }
+
+    .glass.float h3 {
+        font-size: 1.5rem !important;
+    }
+
+    [style*="width: 480px; height: 480px"] {
+        width: 300px !important;
+        height: 300px !important;
+    }
+
+    /* Floating Badges Mobile */
+    .float[style*="left: -20px"] {
+        left: 0 !important;
+        top: -10px !important;
+        padding: 8px 16px !important;
+    }
+
+    .float[style*="right: -20px"] {
+        right: 0 !important;
+        bottom: 10px !important;
+        padding: 8px 16px !important;
+    }
+
+    /* Bottom Nav SOON Badge */
+    .mobile-nav-item span[style*="top: 5px"] {
+        top: 2px !important;
+        right: 10% !important;
+        font-size: 0.45rem !important;
+    }
+
+    /* Pricing & Services Cards Mobile */
+    .pricing-card, .service-card, [style*="display: flex; align-items: center; gap: 20px"] {
+        flex-direction: column !important;
+        text-align: center !important;
+        padding: 24px !important;
+    }
+
+    [style*="width: 50px; height: 50px"] {
+        margin: 0 auto 15px !important;
+    }
+
+    /* Table Mobile Fix */
+    .glass[style*="overflow-x: auto"] {
+        margin: 0 -20px;
+        border-radius: 0;
+    }
+
+    /* AI Video Pricing Flex Mobile */
+    [style*="display: flex; justify-content: space-between; align-items: center"] {
+        flex-direction: row !important; /* Keep price on same line but scale font */
+        gap: 10px !important;
+    }
+
+    [style*="display: flex; justify-content: space-between; align-items: center"] span:first-child {
+        font-size: 0.85rem !important;
+    }
+
+    /* Services Image Order Fix */
+    [style*="order: 2"], [style*="order: 1"] {
+        order: 0 !important; /* Reset order to natural flow on mobile */
+    }
+
+    .glass img {
+        width: 100% !important;
+        height: 300px !important;
+        object-fit: cover !important;
+        border-radius: var(--radius-lg);
+    }
+
+    [style*="padding: 40px; border-radius: var(--radius-lg)"] {
+        padding: 20px !important;
+    }
+
+    /* Footer Mobile Fix */
+    .footer {
+        padding-bottom: 100px !important;
+    }
+
+    /* Page Header Spacing Mobile */
+    main > section:first-of-type {
+        padding-top: 100px !important;
+    }
+
+    [style*="padding-top: 150px"] {
+        padding-top: 140px !important;
+    }
+
+    /* Service Image Containers Mobile */
+    .glass[style*="height: 400px"] {
+        height: auto !important;
+        margin-bottom: 20px;
+    }
+    h1 {
+        font-size: 2.5rem !important;
+        padding: 0 10px;
+    }
+
+    /* Hero Buttons Mobile Spacing */
+    .hero-content {
+        flex-direction: column !important;
+        gap: 60px !important;
+        text-align: center !important;
+    }
+
+    .hero-content div[style*="display: flex; gap: 20px"] {
+        justify-content: center !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero.section-padding {
+        padding-top: 120px !important;
+        padding-bottom: 80px !important;
+    }
+
+    /* General Spacing Refinement */
+    .section-padding {
+        padding: 50px 0 !important;
+    }
+
+    /* Hero Design Overhaul Mobile */
+    .hero-image[style*="height: 500px"] {
+        height: 350px !important;
+        margin: 40px 0 !important;
+        display: block !important; /* Stack naturally */
+    }
+
+    .hero-image .glass {
+        position: absolute !important;
+        transform: none !important;
+        box-shadow: var(--card-shadow) !important;
+    }
+
+    /* Main Reach Card Mobile */
+    .hero-image .glass[style*="width: 350px"] {
+        width: 240px !important;
+        height: 160px !important;
+        top: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 1 !important;
+    }
+
+    /* Engagement Card Mobile */
+    .hero-image .glass[style*="width: 180px"] {
+        width: 130px !important;
+        padding: 10px !important;
+        top: 0 !important;
+        right: 10px !important;
+        z-index: 2 !important;
+    }
+
+    /* Notification Card Mobile */
+    .hero-image .glass[style*="width: 220px"] {
+        width: 160px !important;
+        padding: 8px !important;
+        bottom: 20px !important;
+        left: 10px !important;
+        z-index: 2 !important;
+    }
+
+    /* Decorative Icons Mobile */
+    .hero-image .float[style*="background: #FF0000"] {
+        top: -10px !important;
+        left: 15% !important;
+    }
+    .hero-image .float[style*="background: #1877F2"] {
+        bottom: 0 !important;
+        right: 15% !important;
+    }
+
+    /* Bottom Nav SOON Badge */
+    .mobile-nav-item .badge-soon {
+        font-size: 0.45rem !important;
+        background: var(--brand-orange) !important;
+        color: white !important;
+        padding: 1px 4px !important;
+        border-radius: 3px !important;
+        position: absolute !important;
+        top: 4px !important;
+        right: 15% !important;
+        font-weight: 700 !important;
+        z-index: 5 !important;
+    }
+
+    /* Hide Elements on Mobile */
+    .marquee-container, .hero-image {
+        display: none !important;
+    }
+
+    /* WhatsApp Mobile */
+    .whatsapp-float {
+        bottom: 85px !important;
+        right: 15px !important;
+    }
+}

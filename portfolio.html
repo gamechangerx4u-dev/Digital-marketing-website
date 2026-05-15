@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Portfolio | GameChanger4U</title>
+    
+    <!-- Fonts & Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar scrolled">
+        <div class="container nav-content">
+            <a href="index.html" class="logo">
+                <img src="assets/gamechanger4u-logo.jpg" alt="GameChanger4U Logo" style="height: 45px; border-radius: 8px;">
+                <span>GameChanger<span style="color: var(--brand-orange)">4U</span></span>
+            </a>
+            
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="sports.html" style="position: relative;">
+                    Sports
+                    <span style="font-size: 0.6rem; background: var(--brand-orange); color: white; padding: 2px 6px; border-radius: 4px; position: absolute; top: -10px; right: -20px; font-weight: 700;">SOON</span>
+                </a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Bottom Tab Bar -->
+    <nav class="mobile-nav">
+        <div class="mobile-nav-content">
+            <a href="index.html" class="mobile-nav-item">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="services.html" class="mobile-nav-item">
+                <i class="fas fa-th-large"></i>
+                <span>Services</span>
+            </a>
+            <a href="pricing.html" class="mobile-nav-item">
+                <i class="fas fa-tags"></i>
+                <span>Pricing</span>
+            </a>
+            <a href="sports.html" class="mobile-nav-item">
+                <i class="fas fa-running"></i>
+                <span>Sports</span>
+                <span class="badge-soon">SOON</span>
+            </a>
+            <a href="contact.html" class="mobile-nav-item">
+                <i class="fas fa-paper-plane"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Header -->
+        <section class="section-padding" style="padding-top: 150px; text-align: center; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="slide-up">
+                    <h1 style="font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 20px;">
+                        OUR <span class="text-gradient">WORK</span>
+                    </h1>
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); max-width: 700px; margin: 0 auto;">
+                        See how we've helped businesses like yours transform their digital presence.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Grid -->
+        <section class="section-padding">
+            <div class="container">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                    <!-- Placeholder Project 1 -->
+                    <div class="glass reveal slide-up" style="border-radius: var(--radius-lg); overflow: hidden; height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop" alt="Case Study" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1);">
+                        <div style="position: absolute; text-align: center;">
+                            <h3 style="color: var(--text-muted);">Case Study Coming Soon</h3>
+                            <p style="color: var(--brand-orange); font-weight: 700;">DIGITAL BRANDING</p>
+                        </div>
+                    </div>
+                    <!-- Placeholder Project 2 -->
+                    <div class="glass reveal slide-up delay-200" style="border-radius: var(--radius-lg); overflow: hidden; height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <img src="https://images.unsplash.com/photo-1551288049-bbbda5366391?q=80&w=1000&auto=format&fit=crop" alt="Case Study" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1);">
+                        <div style="position: absolute; text-align: center;">
+                            <h3 style="color: var(--text-muted);">Social Growth Story</h3>
+                            <p style="color: var(--brand-orange); font-weight: 700;">SOCIAL MEDIA</p>
+                        </div>
+                    </div>
+                    <!-- Placeholder Project 3 -->
+                    <div class="glass reveal slide-up delay-400" style="border-radius: var(--radius-lg); overflow: hidden; height: 300px; display: flex; align-items: center; justify-content: center; position: relative;">
+                        <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?q=80&w=1000&auto=format&fit=crop" alt="Case Study" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3; filter: grayscale(1);">
+                        <div style="position: absolute; text-align: center;">
+                            <h3 style="color: var(--text-muted);">Web Transformation</h3>
+                            <p style="color: var(--brand-orange); font-weight: 700;">WEB DEVELOPMENT</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Placeholder -->
+        <section class="section-padding" style="background: var(--bg-secondary);">
+            <div class="container">
+                <h2 style="text-align: center; margin-bottom: 50px;">What Our Clients Say</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="glass reveal scale-in" style="padding: 40px; border-radius: var(--radius-lg); text-align: center; font-style: italic;">
+                        <i class="fas fa-quote-left" style="font-size: 2rem; color: var(--brand-orange); opacity: 0.3; margin-bottom: 20px;"></i>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">"Success story coming soon. We are currently helping brands achieve their peak potential."</p>
+                        <p style="font-weight: 700; font-style: normal;">- Future Happy Client</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 GameChanger4U. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
