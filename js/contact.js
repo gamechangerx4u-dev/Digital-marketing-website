@@ -1,30 +1,7 @@
 /**
- * Google Sheets Integration Setup:
- * 1. Create a Google Sheet.
- * 2. Go to Extensions -> Apps Script.
- * 3. Paste the following code:
- * 
- * function doPost(e) {
- *   var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
- *   var data = JSON.parse(e.postData.contents);
- *   sheet.appendRow([
- *     new Date(), 
- *     data.name, 
- *     data.business, 
- *     data.phone, 
- *     data.email, 
- *     data.service, 
- *     data.message
- *   ]);
- *   return ContentService.createTextOutput(JSON.stringify({result: 'success'}))
- *     .setMimeType(ContentService.MimeType.JSON);
- * }
- * 
- * 4. Deploy as Web App -> Execute as 'Me' -> Who has access 'Anyone'.
- * 5. Copy the Web App URL and paste it below in SCRIPT_URL.
+ * Firebase Contact Form Handler
+ * Stores contact submissions to Firebase Realtime Database
  */
-
-const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
 
 document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contact-form');
@@ -40,57 +17,81 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
+        // Get form data
         const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData.entries());
+        const data = {
+            name: formData.get('name'),
+            business: formData.get('business'),
+            phone: formData.get('phone'),
+            email: formData.get('email'),
+            service: formData.get('service'),
+            message: formData.get('message'),
+            timestamp: new Date().toISOString(),
+            dateTime: new Date().toLocaleString()
+        };
 
         try {
-            // In a real scenario, you'd use fetch(SCRIPT_URL, { ... })
-            // For now, we'll simulate the success if SCRIPT_URL is placeholder
-            if (SCRIPT_URL.includes('YOUR_GOOGLE')) {
-                console.warn('Google Apps Script URL not set. Simulating success.');
-                await new Promise(resolve => setTimeout(resolve, 1500));
-            } else {
-                const response = await fetch(SCRIPT_URL, {
-                    method: 'POST',
-                    mode: 'no-cors', // Important for Apps Script
-                    cache: 'no-cache',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
-                });
+            // Check if Firebase is initialized
+            if (typeof database === 'undefined') {
+                throw new Error('Firebase not initialized. Please check firebase-config.js');
             }
+
+            // Save to Firebase Realtime Database
+            const newContactRef = database.ref('contacts').push();
+            await newContactRef.set(data);
 
             // Success feedback
             showToast('Message sent successfully! We will get back to you soon.', 'success');
             contactForm.reset();
 
+            // Optional: Log submission
+            console.log('Contact form submitted:', data);
+
         } catch (error) {
             console.error('Submission error:', error);
-            showToast('Something went wrong. Please try again or call us directly.', 'error');
+            
+            // Show appropriate error message
+            let errorMsg = 'Something went wrong. Please try again or call us directly.';
+            if (error.message.includes('Firebase not initialized')) {
+                errorMsg = 'Firebase configuration missing. Please contact support.';
+            } else if (error.message.includes('Permission denied')) {
+                errorMsg = 'Database permission denied. Please contact support.';
+            }
+            
+            showToast(errorMsg, 'error');
         } finally {
             submitBtn.disabled = false;
             submitBtn.innerHTML = originalBtnText;
         }
     });
 
+    /**
+     * Show toast notification
+     */
     function showToast(message, type) {
         const toast = document.createElement('div');
-        toast.className = `toast toast-${type} fade-in`;
+        toast.className = `toast toast-${type}`;
+        
+        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+        const bgColor = type === 'success' ? '#25D366' : '#FF3B30';
+        
         toast.innerHTML = `
             <div class="toast-content">
-                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <i class="fas ${icon}"></i>
                 <span>${message}</span>
+                <button class="toast-close" aria-label="Close">&times;</button>
             </div>
         `;
         
-        // Style the toast (can be moved to CSS)
+        // Apply styles
         Object.assign(toast.style, {
             position: 'fixed',
             bottom: '100px',
             left: '50%',
             transform: 'translateX(-50%)',
-            background: type === 'success' ? '#25D366' : '#FF3B30',
+            background: bgColor,
             color: 'white',
-            padding: '12px 24px',
+            padding: '16px 24px',
             borderRadius: '12px',
             zIndex: '3000',
             boxShadow: '0 10px 30px rgba(0,0,0,0.2)',
@@ -98,15 +99,64 @@ document.addEventListener('DOMContentLoaded', () => {
             alignItems: 'center',
             gap: '12px',
             fontSize: '0.95rem',
-            fontWeight: '600'
+            fontWeight: '600',
+            animation: 'fadeIn 0.3s ease-in',
+            maxWidth: '400px',
+            wordWrap: 'break-word'
         });
+
+        // Add toast content styles
+        const content = toast.querySelector('.toast-content');
+        if (content) {
+            Object.assign(content.style, {
+                display: 'flex',
+                alignItems: 'center',
+                gap: '12px',
+                width: '100%'
+            });
+        }
+
+        // Add close button handler
+        const closeBtn = toast.querySelector('.toast-close');
+        if (closeBtn) {
+            closeBtn.style.cssText = 'background:none;border:none;color:white;font-size:1.5rem;cursor:pointer;padding:0;margin-left:auto;';
+            closeBtn.addEventListener('click', () => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 300);
+            });
+        }
 
         document.body.appendChild(toast);
 
+        // Auto-remove after 5 seconds
         setTimeout(() => {
-            toast.style.opacity = '0';
-            toast.style.transform = 'translateX(-50%) translateY(20px)';
-            setTimeout(() => toast.remove(), 500);
-        }, 4000);
+            if (toast.parentElement) {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateX(-50%) translateY(20px)';
+                setTimeout(() => {
+                    if (toast.parentElement) toast.remove();
+                }, 300);
+            }
+        }, 5000);
+    }
+
+    // Add fade-in animation if not already defined
+    if (!document.getElementById('toast-animation')) {
+        const style = document.createElement('style');
+        style.id = 'toast-animation';
+        style.textContent = `
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
     }
 });
+
