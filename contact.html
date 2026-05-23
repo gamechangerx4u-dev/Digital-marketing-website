@@ -82,6 +82,23 @@
             gap: 20px;
             margin-bottom: 30px;
         }
+        .map-thumb { position: relative; }
+        .map-thumb iframe {
+            width: 100%;
+            height: 140px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            pointer-events: none;
+        }
+        .map-hitbox {
+            position: absolute;
+            inset: 0;
+            display: block;
+            border-radius: 8px;
+            z-index: 2;
+            cursor: pointer;
+        }
+        .location-link { display: inline-block; margin-top: 8px; }
         .info-icon {
             width: 50px;
             height: 50px;
@@ -237,10 +254,16 @@
                                 </div>
                             </div>
                             <div class="info-item">
-                                <div class="info-icon"><i class="fas fa-globe"></i></div>
+                                <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
                                 <div>
                                     <p style="color: var(--text-muted); font-size: 0.9rem;">Location</p>
-                                    <p style="font-weight: 700; font-size: 1.1rem;">Scaling to Global</p>
+                                    <p style="font-weight: 700; font-size: 1.1rem; margin:6px 0 0;">GameChanger4U</p>
+                                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin:6px 0 8px;">120A/121 Venus nagar, 2nd Main road, Kolathur, Tamil Nadu, India</p>
+                                    <a class="btn location-link" href="https://maps.app.goo.gl/mwuAHxJheB5bDrsk9" target="_blank" rel="noopener">Open in Google Maps</a>
+                                    <div class="map-thumb" style="margin-top:12px;">
+                                        <iframe src="https://www.google.com/maps?q=13.1283061,80.2060536&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="GameChanger4U map"></iframe>
+                                        <a class="map-hitbox" href="https://maps.app.goo.gl/mwuAHxJheB5bDrsk9" target="_blank" rel="noopener" aria-label="Open GameChanger4U in Google Maps"></a>
+                                    </div>
                                 </div>
                             </div>
                             

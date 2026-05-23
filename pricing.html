@@ -115,6 +115,16 @@
         @media (min-width: 1000px) {
             .pricing-grid { grid-template-columns: repeat(3, 1fr); }
         }
+        /* Location / map styles */
+        .location-card { display: grid; grid-template-columns: 1fr 360px; gap: 20px; align-items: center; max-width: 1000px; margin: 0 auto; }
+        .map-embed iframe { width: 100%; height: 240px; border-radius: 10px; border: 1px solid var(--border); }
+        .location-card h3 { margin: 0 0 6px 0; }
+        .location-link { display: inline-block; margin-top: 12px; }
+        @media (max-width: 800px) {
+            .location-card { grid-template-columns: 1fr; }
+            .map-embed { order: -1; }
+        }
+        .contact-cta { margin-top: 14px; }
         table {
             width: 100%;
             border-collapse: collapse;
@@ -206,6 +216,7 @@
                 </div>
             </div>
         </section>
+        <!-- (Location moved to Contact page) -->
 
         <!-- Social Media Packages -->
         <section class="section-padding bg-indigo-soft">
@@ -226,6 +237,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-video"></i></div><div class="stat-label">2 Videos</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹5999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=basic" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
 
                     <!-- Growth Plan (₹8999) -->
@@ -242,6 +254,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-video"></i></div><div class="stat-label">4 Videos</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹8999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=growth" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
 
                     <!-- AI Combo Plan (₹9999) -->
@@ -259,6 +272,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-robot"></i></div><div class="stat-label">1 AI Video</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹9999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=ai-combo" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
 
                     <!-- Premium AI Plan (₹11999) -->
@@ -276,6 +290,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-video"></i></div><div class="stat-label">2 Videos</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹11999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=premium-ai" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
 
                     <!-- Advanced Plan (₹12999) -->
@@ -292,6 +307,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-video"></i></div><div class="stat-label">4 Videos</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹12999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=advanced" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
 
                     <!-- Elite AI Plan (₹14999) -->
@@ -309,6 +325,7 @@
                             <div class="stat-row"><div class="icon-box"><i class="fas fa-video"></i></div><div class="stat-label">4 Videos</div></div>
                         </div>
                         <div class="price-bottom"><div class="price-tag">₹14999</div></div>
+                        <div class="contact-cta"><a href="contact.html?plan=elite-ai" class="btn btn-primary" style="width:100%;">Contact</a></div>
                     </div>
                 </div>
             </div>
